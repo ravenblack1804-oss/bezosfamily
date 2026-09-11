@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Bezos Family (BZF) — a fixed-supply digital asset on the Stellar network built around long-term infrastructure, global value transfer and future ecosystem participation."
+    content="Bezos Family (BZF) — a fixed-supply digital asset on Stellar Mainnet built around long-term infrastructure, global value transfer and future ecosystem participation."
   >
 
   <style>
@@ -37,6 +37,11 @@
       color: inherit;
     }
 
+    button,
+    input {
+      font-family: inherit;
+    }
+
     .container {
       width: min(1180px, 92%);
       margin: 0 auto;
@@ -58,10 +63,12 @@
     }
 
     .section-subtitle {
-      max-width: 820px;
+      max-width: 850px;
       color: #b8c1ce;
       font-size: 18px;
     }
+
+    /* NAV */
 
     .nav {
       position: sticky;
@@ -69,7 +76,7 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(5,11,21,0.82);
+      background: rgba(5,11,21,0.84);
       border-bottom: 1px solid rgba(212,175,99,0.14);
     }
 
@@ -104,7 +111,6 @@
     .brand-name {
       font-size: 16px;
       font-weight: 800;
-      color: #ffffff;
     }
 
     .brand-code {
@@ -118,7 +124,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -132,6 +138,8 @@
       color: #d4af63;
     }
 
+    /* BUTTONS */
+
     .btn {
       min-height: 52px;
       display: inline-flex;
@@ -142,9 +150,9 @@
       border-radius: 999px;
       font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.15px;
       transition: 0.25s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -182,6 +190,18 @@
       border-color: rgba(255,255,255,0.25);
       background: rgba(255,255,255,0.075);
     }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* HERO */
 
     .hero {
       padding: 115px 0 95px;
@@ -253,9 +273,10 @@
 
     .mini-stat-value {
       font-size: 19px;
-      color: #ffffff;
       font-weight: 800;
     }
+
+    /* HERO CARD */
 
     .hero-panel {
       padding: 35px;
@@ -329,6 +350,256 @@
       text-align: right;
     }
 
+    /* BUY BZF */
+
+    .buy-section {
+      position: relative;
+    }
+
+    .buy-wrap {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 35px;
+      align-items: stretch;
+      margin-top: 40px;
+    }
+
+    .buy-info {
+      padding: 35px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(212,175,99,0.12), transparent 40%),
+        rgba(255,255,255,0.025);
+      border: 1px solid rgba(212,175,99,0.16);
+    }
+
+    .buy-info h3 {
+      font-size: 29px;
+      margin-bottom: 15px;
+    }
+
+    .buy-info p {
+      color: #bcc6d2;
+      margin-bottom: 22px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .feature-item {
+      padding: 14px 16px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.055);
+      color: #d5dbe3;
+    }
+
+    .feature-item strong {
+      color: #d4af63;
+    }
+
+    .swap-card {
+      padding: 32px;
+      border-radius: 30px;
+      border: 1px solid rgba(212,175,99,0.22);
+      background:
+        radial-gradient(circle at top right, rgba(212,175,99,0.11), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+      box-shadow: 0 30px 75px rgba(0,0,0,0.26);
+    }
+
+    .swap-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .swap-header h3 {
+      font-size: 27px;
+    }
+
+    .network-pill {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #9ed6b1;
+      background: rgba(76,175,110,0.09);
+      border: 1px solid rgba(76,175,110,0.24);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .wallet-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.026);
+      border: 1px solid rgba(255,255,255,0.065);
+      margin-bottom: 17px;
+    }
+
+    .wallet-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .wallet-label {
+      color: #8e99a8;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .wallet-address {
+      margin-top: 7px;
+      font-size: 13px;
+      color: #ffffff;
+      word-break: break-all;
+    }
+
+    .status {
+      font-size: 13px;
+      margin-top: 8px;
+      color: #b7c0cc;
+    }
+
+    .status.good {
+      color: #9ed6b1;
+    }
+
+    .status.warning {
+      color: #e2c37d;
+    }
+
+    .status.error {
+      color: #ef9696;
+    }
+
+    .swap-input-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(2,8,16,0.55);
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-top: 15px;
+    }
+
+    .swap-input-label {
+      color: #8e99a8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      margin-bottom: 10px;
+    }
+
+    .swap-input-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .swap-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 750;
+      min-width: 0;
+    }
+
+    .asset-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.065);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 800;
+    }
+
+    .asset-badge img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .swap-arrow {
+      width: 42px;
+      height: 42px;
+      margin: -6px auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #111c2b;
+      border: 1px solid rgba(212,175,99,0.22);
+      color: #d4af63;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .quote-value {
+      font-size: clamp(27px, 4vw, 38px);
+      font-weight: 800;
+      min-height: 55px;
+      display: flex;
+      align-items: center;
+    }
+
+    .quote-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+      margin-bottom: 20px;
+    }
+
+    .quote-meta-item {
+      padding: 12px 13px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.023);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .quote-meta-label {
+      color: #7f8a99;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      margin-bottom: 5px;
+    }
+
+    .quote-meta-value {
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .swap-actions {
+      display: grid;
+      gap: 11px;
+    }
+
+    .swap-note {
+      margin-top: 17px;
+      color: #8994a3;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* STANDARD CARDS */
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -360,6 +631,8 @@
     .card p {
       color: #b9c2ce;
     }
+
+    /* OBJECTIVE */
 
     .objective-box {
       margin-top: 38px;
@@ -396,12 +669,22 @@
       margin-bottom: 15px;
     }
 
+    .objective-note {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      color: #9fa9b6;
+      font-size: 13px;
+    }
+
     .objective-statement {
-      margin-top: 26px;
+      margin-top: 24px;
       color: #e1c47e;
       font-weight: 800;
       letter-spacing: 1.2px;
     }
+
+    /* STATS */
 
     .stats-grid {
       display: grid;
@@ -431,6 +714,8 @@
       font-weight: 800;
       line-height: 1.18;
     }
+
+    /* VERIFY */
 
     .verify-box {
       margin-top: 38px;
@@ -473,6 +758,8 @@
       margin-top: 27px;
     }
 
+    /* COMMUNITY */
+
     .community-box {
       padding: 55px 32px;
       text-align: center;
@@ -504,6 +791,8 @@
       gap: 13px;
     }
 
+    /* CONTACT */
+
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -532,6 +821,8 @@
       word-break: break-word;
     }
 
+    /* FOOTER */
+
     footer {
       margin-top: 25px;
       padding: 34px 0 50px;
@@ -548,7 +839,8 @@
     }
 
     @media (max-width: 1050px) {
-      .hero-grid {
+      .hero-grid,
+      .buy-wrap {
         grid-template-columns: 1fr;
       }
 
@@ -586,7 +878,8 @@
 
       .mini-stats,
       .stats-grid,
-      .contact-grid {
+      .contact-grid,
+      .quote-meta {
         grid-template-columns: 1fr;
       }
 
@@ -595,16 +888,20 @@
         gap: 7px;
       }
 
-      .objective-box {
-        padding: 27px;
-      }
-
+      .objective-box,
+      .swap-card,
+      .buy-info,
       .hero-panel {
         padding: 26px;
       }
 
       .btn {
         width: 100%;
+      }
+
+      .swap-header {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
   </style>
@@ -626,6 +923,7 @@
     </a>
 
     <div class="nav-links">
+      <a href="#buy">Buy BZF</a>
       <a href="#vision">Vision</a>
       <a href="#objective">Objective</a>
       <a href="#asset">BZF</a>
@@ -638,6 +936,8 @@
 
 
 <main id="top">
+
+<!-- HERO -->
 
 <section class="hero">
   <div class="container hero-grid">
@@ -662,8 +962,8 @@
 
       <div class="hero-actions">
 
-        <a href="#asset" class="btn btn-primary">
-          Explore BZF
+        <a href="#buy" class="btn btn-primary">
+          Buy BZF
         </a>
 
         <a
@@ -723,7 +1023,9 @@
         <img src="/images/bzf-logo.png" alt="Bezos Family BZF Logo">
       </div>
 
-      <div class="panel-kicker">OFFICIAL STELLAR ASSET</div>
+      <div class="panel-kicker">
+        OFFICIAL STELLAR ASSET
+      </div>
 
       <div class="panel-title">
         Bezos Family
@@ -770,7 +1072,319 @@
 </section>
 
 
+<!-- BUY BZF -->
+
+<section class="section buy-section" id="buy">
+
+  <div class="container">
+
+    <div class="eyebrow">
+      STELLAR MARKET ACCESS
+    </div>
+
+    <h2 class="section-title">
+      Buy <span class="gold">BZF</span>
+    </h2>
+
+    <p class="section-subtitle">
+      Connect a Stellar wallet, check your BZF asset status and obtain
+      a live XLM → BZF market quote before continuing to your wallet
+      for confirmation.
+    </p>
+
+
+    <div class="buy-wrap">
+
+      <div class="buy-info">
+
+        <h3>
+          A simple path into the BZF ecosystem.
+        </h3>
+
+        <p>
+          The interface reads public Stellar network data and your public
+          wallet address. Your secret key and recovery phrase are never
+          requested by this website.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            <strong>01.</strong>
+            Connect your Stellar wallet.
+          </div>
+
+          <div class="feature-item">
+            <strong>02.</strong>
+            Check whether BZF is enabled in your wallet.
+          </div>
+
+          <div class="feature-item">
+            <strong>03.</strong>
+            Enter the amount of XLM you want to exchange.
+          </div>
+
+          <div class="feature-item">
+            <strong>04.</strong>
+            Receive a live Stellar market quote.
+          </div>
+
+          <div class="feature-item">
+            <strong>05.</strong>
+            Continue to LOBSTR and approve the transaction in your wallet.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="swap-card">
+
+        <div class="swap-header">
+
+          <div>
+            <div class="panel-kicker">
+              BZF MARKET
+            </div>
+
+            <h3>
+              XLM → BZF
+            </h3>
+          </div>
+
+          <div class="network-pill">
+            MAINNET
+          </div>
+
+        </div>
+
+
+        <div class="wallet-box">
+
+          <div class="wallet-top">
+
+            <div>
+              <div class="wallet-label">
+                Connected Wallet
+              </div>
+
+              <div
+                class="wallet-address"
+                id="walletAddress"
+              >
+                Not connected
+              </div>
+            </div>
+
+          </div>
+
+          <div
+            class="status"
+            id="walletStatus"
+          >
+            Connect a wallet to check BZF status.
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn btn-secondary btn-full"
+          id="connectWalletButton"
+          type="button"
+        >
+          Connect Stellar Wallet
+        </button>
+
+
+        <div class="swap-input-card">
+
+          <div class="swap-input-label">
+            You Pay
+          </div>
+
+          <div class="swap-input-row">
+
+            <input
+              id="xlmAmount"
+              class="swap-input"
+              type="number"
+              min="0"
+              step="0.0000001"
+              inputmode="decimal"
+              placeholder="0.00"
+              autocomplete="off"
+            >
+
+            <div class="asset-badge">
+              XLM
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="swap-arrow">
+          ↓
+        </div>
+
+
+        <div class="swap-input-card">
+
+          <div class="swap-input-label">
+            Estimated Receive
+          </div>
+
+          <div class="swap-input-row">
+
+            <div
+              class="quote-value"
+              id="bzfQuote"
+            >
+              0.0000000
+            </div>
+
+            <div class="asset-badge">
+
+              <img
+                src="/images/bzf-logo.png"
+                alt="BZF"
+              >
+
+              BZF
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="quote-meta">
+
+          <div class="quote-meta-item">
+
+            <div class="quote-meta-label">
+              BZF per XLM
+            </div>
+
+            <div
+              class="quote-meta-value"
+              id="bzfPerXlm"
+            >
+              —
+            </div>
+
+          </div>
+
+
+          <div class="quote-meta-item">
+
+            <div class="quote-meta-label">
+              Quote Source
+            </div>
+
+            <div class="quote-meta-value">
+              Stellar Network
+            </div>
+
+          </div>
+
+
+          <div class="quote-meta-item">
+
+            <div class="quote-meta-label">
+              Trustline
+            </div>
+
+            <div
+              class="quote-meta-value"
+              id="trustlineValue"
+            >
+              Connect wallet
+            </div>
+
+          </div>
+
+
+          <div class="quote-meta-item">
+
+            <div class="quote-meta-label">
+              Asset
+            </div>
+
+            <div class="quote-meta-value">
+              BZF / Stellar
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="swap-actions">
+
+          <button
+            id="quoteButton"
+            type="button"
+            class="btn btn-primary btn-full"
+          >
+            Get Live Quote
+          </button>
+
+
+          <a
+            id="lobstrBuyButton"
+            href="https://lobstr.co/assets/BZF%3AGBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary btn-full"
+          >
+            Continue in LOBSTR ↗
+          </a>
+
+
+          <a
+            href="https://stellar.expert/explorer/public/asset/BZF-GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark btn-full"
+          >
+            Verify BZF on StellarExpert ↗
+          </a>
+
+        </div>
+
+
+        <div
+          class="status"
+          id="quoteStatus"
+        >
+          Enter an XLM amount to request a market quote.
+        </div>
+
+
+        <p class="swap-note">
+          Quotes depend on available Stellar market liquidity and may change
+          before the transaction is confirmed. Always verify the asset code
+          and issuer before approving a transaction.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VISION -->
+
 <section class="section" id="vision">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -781,51 +1395,77 @@
     <p class="section-subtitle">
       The next era will be shaped by the convergence of technology,
       global infrastructure, digital networks and entirely new models
-      of participation. Bezos Family is being positioned inside that
-      larger transformation.
+      of participation.
     </p>
 
 
     <div class="grid-3">
 
       <div class="card">
-        <div class="card-number">01</div>
-        <h3>Long-Term Infrastructure</h3>
+
+        <div class="card-number">
+          01
+        </div>
+
+        <h3>
+          Long-Term Infrastructure
+        </h3>
+
         <p>
-          Building systems around a long-range vision — designed
-          to develop over years and generations rather than moments.
+          Building systems around a long-range vision — designed to
+          develop over years and generations rather than moments.
         </p>
+
       </div>
 
 
       <div class="card">
-        <div class="card-number">02</div>
-        <h3>Strategic Participation</h3>
+
+        <div class="card-number">
+          02
+        </div>
+
+        <h3>
+          Strategic Participation
+        </h3>
+
         <p>
           Creating pathways designed to connect communities with
           future initiatives, infrastructure and opportunities
           developed throughout the ecosystem.
         </p>
+
       </div>
 
 
       <div class="card">
-        <div class="card-number">03</div>
-        <h3>Digital + Global Markets</h3>
+
+        <div class="card-number">
+          03
+        </div>
+
+        <h3>
+          Digital + Global Markets
+        </h3>
+
         <p>
           Exploring new connections between blockchain-based
-          infrastructure and the world's established economic
-          and financial systems.
+          infrastructure and established economic and financial systems.
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
+<!-- OBJECTIVE -->
+
 <section class="section" id="objective">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -834,10 +1474,9 @@
     </h2>
 
     <p class="section-subtitle">
-      One of the major long-term objectives for the Bezos Family
-      ecosystem is the development of a powerful bridge between
-      digital assets and participation in globally recognized
-      public markets.
+      One of the long-term objectives being developed for the
+      Bezos Family ecosystem is a framework connecting digital
+      assets with broader market infrastructure.
     </p>
 
 
@@ -860,17 +1499,23 @@
       </p>
 
       <p class="objective-text">
-        The vision is to build the infrastructure capable of connecting
+        The vision is to develop infrastructure capable of connecting
         Stellar-based digital participation with traditional markets
         through the brokerage, custody and compliance systems required
-        for large-scale participation.
+        for large-scale implementation.
       </p>
 
       <p class="objective-text">
-        This represents one of the major long-term milestones
-        in the Bezos Family roadmap and part of a broader strategy
-        centered around digital infrastructure and global market access.
+        This represents one of the major long-term milestones in the
+        Bezos Family roadmap.
       </p>
+
+      <div class="objective-note">
+        Strategic roadmap target. This section describes a future framework
+        and is separate from today's BZF market trading. Implementation
+        depends on the required brokerage, custody, legal and compliance
+        infrastructure.
+      </div>
 
       <div class="objective-statement">
         DIGITAL INFRASTRUCTURE. GLOBAL MARKETS. ONE CONNECTED ECOSYSTEM.
@@ -879,10 +1524,14 @@
     </div>
 
   </div>
+
 </section>
 
 
+<!-- ASSET -->
+
 <section class="section" id="asset">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -941,10 +1590,14 @@
     </div>
 
   </div>
+
 </section>
 
 
+<!-- VERIFY -->
+
 <section class="section" id="verify">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -971,17 +1624,27 @@
       </div>
 
       <div class="verify-row">
-        <div class="verify-key">Issuer</div>
+
+        <div class="verify-key">
+          Issuer
+        </div>
+
         <div class="verify-value">
           GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ
         </div>
+
       </div>
 
       <div class="verify-row">
-        <div class="verify-key">Distribution</div>
+
+        <div class="verify-key">
+          Distribution
+        </div>
+
         <div class="verify-value">
           GD7VLJNN43W5IIWZZ2JRX7PUVEVBNQCVFN7JFDDB2QAVEXFC5G63TFIU
         </div>
+
       </div>
 
       <div class="verify-row">
@@ -1025,10 +1688,14 @@
     </div>
 
   </div>
+
 </section>
 
 
+<!-- COMMUNITY -->
+
 <section class="section" id="community">
+
   <div class="container">
 
     <div class="community-box">
@@ -1069,24 +1736,19 @@
           Open BZF on LOBSTR ↗
         </a>
 
-        <a
-          href="https://stellar.expert/explorer/public/asset/BZF-GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-dark"
-        >
-          Blockchain Explorer ↗
-        </a>
-
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
+<!-- CONTACT -->
+
 <section class="section" id="contact">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -1108,32 +1770,19 @@
       </div>
 
       <div class="contact-card">
-        <div class="contact-label">Principal</div>
-        <div class="contact-value">Jef Bezos</div>
-      </div>
-
-      <div class="contact-card">
-        <div class="contact-label">Location</div>
-        <div class="contact-value">New York, USA</div>
-      </div>
-
-      <div class="contact-card">
         <div class="contact-label">Official Email</div>
-        <div class="contact-value">
-          contact@bezosfamily.cc
-        </div>
+        <div class="contact-value">contact@bezosfamily.cc</div>
       </div>
 
       <div class="contact-card">
         <div class="contact-label">Support</div>
-        <div class="contact-value">
-          support@bezosfamily.cc
-        </div>
+        <div class="contact-value">support@bezosfamily.cc</div>
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
@@ -1141,6 +1790,7 @@
 
 
 <footer>
+
   <div class="container footer-inner">
 
     <div>
@@ -1156,7 +1806,711 @@
     </div>
 
   </div>
+
 </footer>
+
+
+<script type="module">
+
+  /*
+    ========================================================
+    BZF STELLAR WALLET + LIVE QUOTE
+    ========================================================
+  */
+
+  import {
+    Asset,
+    Horizon,
+    Networks
+  } from "https://esm.sh/@stellar/stellar-sdk";
+
+
+  import {
+    StellarWalletsKit
+  } from "https://esm.sh/@creit.tech/stellar-wallets-kit/sdk";
+
+
+  import {
+    defaultModules
+  } from "https://esm.sh/@creit.tech/stellar-wallets-kit/modules/utils";
+
+
+  import {
+    WalletConnectModule,
+    WalletConnectTargetChain
+  } from "https://esm.sh/@creit.tech/stellar-wallets-kit/modules/wallet-connect";
+
+
+  /*
+    ========================================================
+    PROJECT SETTINGS
+    ========================================================
+  */
+
+  const REOWN_PROJECT_ID =
+    "5fd344a56532ac72bc1b7986e9aba4b6";
+
+
+  const BZF_CODE =
+    "BZF";
+
+
+  const BZF_ISSUER =
+    "GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ";
+
+
+  const BZF_ASSET =
+    new Asset(
+      BZF_CODE,
+      BZF_ISSUER
+    );
+
+
+  const HORIZON_URL =
+    "https://horizon.stellar.org";
+
+
+  const LOBSTR_URL =
+    "https://lobstr.co/assets/BZF%3AGBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ";
+
+
+  const server =
+    new Horizon.Server(
+      HORIZON_URL
+    );
+
+
+  /*
+    ========================================================
+    INITIALIZE STELLAR WALLETS KIT
+    ========================================================
+  */
+
+  try {
+
+    StellarWalletsKit.init({
+
+      modules: [
+
+        ...defaultModules(),
+
+        new WalletConnectModule({
+
+          projectId:
+            REOWN_PROJECT_ID,
+
+          metadata: {
+
+            name:
+              "Bezos Family",
+
+            description:
+              "BZF Stellar Mainnet asset interface",
+
+            url:
+              "https://bezosfamily.cc",
+
+            icons: [
+              "https://bezosfamily.cc/images/bzf-logo.png"
+            ]
+
+          },
+
+          allowedChains: [
+            WalletConnectTargetChain.PUBLIC
+          ]
+
+        })
+
+      ]
+
+    });
+
+
+    StellarWalletsKit.setNetwork(
+      Networks.PUBLIC
+    );
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "Wallet initialization error:",
+      error
+    );
+
+  }
+
+
+  /*
+    ========================================================
+    ELEMENTS
+    ========================================================
+  */
+
+  const connectWalletButton =
+    document.getElementById(
+      "connectWalletButton"
+    );
+
+
+  const walletAddressElement =
+    document.getElementById(
+      "walletAddress"
+    );
+
+
+  const walletStatusElement =
+    document.getElementById(
+      "walletStatus"
+    );
+
+
+  const trustlineValueElement =
+    document.getElementById(
+      "trustlineValue"
+    );
+
+
+  const xlmAmountElement =
+    document.getElementById(
+      "xlmAmount"
+    );
+
+
+  const bzfQuoteElement =
+    document.getElementById(
+      "bzfQuote"
+    );
+
+
+  const bzfPerXlmElement =
+    document.getElementById(
+      "bzfPerXlm"
+    );
+
+
+  const quoteButton =
+    document.getElementById(
+      "quoteButton"
+    );
+
+
+  const quoteStatusElement =
+    document.getElementById(
+      "quoteStatus"
+    );
+
+
+  const lobstrBuyButton =
+    document.getElementById(
+      "lobstrBuyButton"
+    );
+
+
+  /*
+    ========================================================
+    STATE
+    ========================================================
+  */
+
+  let connectedAddress = null;
+
+  let hasBzfTrustline = false;
+
+  let latestQuote = null;
+
+
+  /*
+    ========================================================
+    SMALL HELPERS
+    ========================================================
+  */
+
+  function shortAddress(address) {
+
+    if (!address) {
+      return "Not connected";
+    }
+
+    return (
+      address.slice(0, 8)
+      +
+      "..."
+      +
+      address.slice(-8)
+    );
+
+  }
+
+
+  function setStatus(
+    element,
+    message,
+    type = ""
+  ) {
+
+    element.textContent =
+      message;
+
+    element.className =
+      "status";
+
+    if (type) {
+
+      element.classList.add(
+        type
+      );
+
+    }
+
+  }
+
+
+  function validAmount(value) {
+
+    const number =
+      Number(value);
+
+    return (
+      Number.isFinite(number)
+      &&
+      number > 0
+    );
+
+  }
+
+
+  /*
+    ========================================================
+    CONNECT WALLET
+    ========================================================
+  */
+
+  async function connectWallet() {
+
+    try {
+
+      setStatus(
+        walletStatusElement,
+        "Waiting for wallet connection..."
+      );
+
+
+      const result =
+        await StellarWalletsKit.authModal();
+
+
+      if (
+        !result
+        ||
+        !result.address
+      ) {
+
+        throw new Error(
+          "Wallet did not provide an address."
+        );
+
+      }
+
+
+      connectedAddress =
+        result.address;
+
+
+      walletAddressElement.textContent =
+        shortAddress(
+          connectedAddress
+        );
+
+
+      walletAddressElement.title =
+        connectedAddress;
+
+
+      connectWalletButton.textContent =
+        "Wallet Connected ✓";
+
+
+      await checkBzfTrustline();
+
+
+      setStatus(
+        walletStatusElement,
+        "Wallet connected successfully.",
+        "good"
+      );
+
+
+    }
+
+    catch (error) {
+
+      console.error(
+        error
+      );
+
+
+      setStatus(
+        walletStatusElement,
+        "Wallet connection was cancelled or could not be completed.",
+        "error"
+      );
+
+    }
+
+  }
+
+
+  /*
+    ========================================================
+    CHECK BZF TRUSTLINE
+    ========================================================
+  */
+
+  async function checkBzfTrustline() {
+
+    if (!connectedAddress) {
+
+      hasBzfTrustline =
+        false;
+
+
+      trustlineValueElement.textContent =
+        "Connect wallet";
+
+
+      return;
+
+    }
+
+
+    try {
+
+      trustlineValueElement.textContent =
+        "Checking...";
+
+
+      const account =
+        await server.loadAccount(
+          connectedAddress
+        );
+
+
+      hasBzfTrustline =
+        account.balances.some(
+          balance =>
+            balance.asset_type !== "native"
+            &&
+            balance.asset_code === BZF_CODE
+            &&
+            balance.asset_issuer === BZF_ISSUER
+        );
+
+
+      if (hasBzfTrustline) {
+
+        trustlineValueElement.textContent =
+          "Enabled ✓";
+
+
+        setStatus(
+          walletStatusElement,
+          "BZF is enabled in this wallet.",
+          "good"
+        );
+
+      }
+
+      else {
+
+        trustlineValueElement.textContent =
+          "BZF not enabled";
+
+
+        setStatus(
+          walletStatusElement,
+          "BZF trustline is not currently enabled. Open BZF in LOBSTR to add the asset before receiving BZF.",
+          "warning"
+        );
+
+      }
+
+    }
+
+    catch (error) {
+
+      console.error(
+        "Account lookup error:",
+        error
+      );
+
+
+      trustlineValueElement.textContent =
+        "Unable to verify";
+
+
+      setStatus(
+        walletStatusElement,
+        "Unable to check this Stellar account.",
+        "error"
+      );
+
+    }
+
+  }
+
+
+  /*
+    ========================================================
+    GET LIVE XLM → BZF QUOTE
+    ========================================================
+  */
+
+  async function getQuote() {
+
+    const amount =
+      xlmAmountElement.value.trim();
+
+
+    if (!validAmount(amount)) {
+
+      setStatus(
+        quoteStatusElement,
+        "Enter a valid XLM amount greater than zero.",
+        "warning"
+      );
+
+
+      return;
+
+    }
+
+
+    quoteButton.disabled =
+      true;
+
+
+    quoteButton.textContent =
+      "Finding Best Route...";
+
+
+    setStatus(
+      quoteStatusElement,
+      "Searching Stellar market liquidity..."
+    );
+
+
+    try {
+
+      /*
+        Ask Horizon for available strict-send routes:
+        exact amount of XLM sent,
+        destination asset = BZF.
+      */
+
+      const response =
+        await server
+          .strictSendPaths(
+            Asset.native(),
+            amount,
+            [
+              BZF_ASSET
+            ]
+          )
+          .call();
+
+
+      if (
+        !response.records
+        ||
+        response.records.length === 0
+      ) {
+
+        throw new Error(
+          "No XLM to BZF market route is currently available."
+        );
+
+      }
+
+
+      /*
+        Pick route with highest BZF output.
+      */
+
+      const records =
+        [...response.records];
+
+
+      records.sort(
+        (a, b) =>
+          Number(b.destination_amount)
+          -
+          Number(a.destination_amount)
+      );
+
+
+      const best =
+        records[0];
+
+
+      const destinationAmount =
+        Number(
+          best.destination_amount
+        );
+
+
+      const sourceAmount =
+        Number(amount);
+
+
+      latestQuote =
+        best;
+
+
+      bzfQuoteElement.textContent =
+        destinationAmount.toLocaleString(
+          undefined,
+          {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 7
+          }
+        );
+
+
+      const bzfPerXlm =
+        destinationAmount
+        /
+        sourceAmount;
+
+
+      bzfPerXlmElement.textContent =
+        bzfPerXlm.toLocaleString(
+          undefined,
+          {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 7
+          }
+        );
+
+
+      setStatus(
+        quoteStatusElement,
+        "Live Stellar market route found. Quote may change before execution.",
+        "good"
+      );
+
+
+    }
+
+    catch (error) {
+
+      console.error(
+        "Quote error:",
+        error
+      );
+
+
+      latestQuote =
+        null;
+
+
+      bzfQuoteElement.textContent =
+        "0.0000000";
+
+
+      bzfPerXlmElement.textContent =
+        "—";
+
+
+      setStatus(
+        quoteStatusElement,
+        "No executable XLM → BZF market route was found for this amount. Check current BZF liquidity or try a different amount.",
+        "error"
+      );
+
+    }
+
+    finally {
+
+      quoteButton.disabled =
+        false;
+
+
+      quoteButton.textContent =
+        "Get Live Quote";
+
+    }
+
+  }
+
+
+  /*
+    ========================================================
+    EVENTS
+    ========================================================
+  */
+
+  connectWalletButton.addEventListener(
+    "click",
+    connectWallet
+  );
+
+
+  quoteButton.addEventListener(
+    "click",
+    getQuote
+  );
+
+
+  xlmAmountElement.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        getQuote();
+
+      }
+
+    }
+  );
+
+
+  lobstrBuyButton.addEventListener(
+    "click",
+    () => {
+
+      /*
+        Execution remains inside the user's wallet / LOBSTR.
+        The website never asks for a secret key.
+      */
+
+      window.open(
+        LOBSTR_URL,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+    }
+  );
+
+
+  /*
+    ========================================================
+    INITIAL STATUS
+    ========================================================
+  */
+
+  setStatus(
+    quoteStatusElement,
+    "Enter an XLM amount to request a live Stellar market quote."
+  );
+
+</script>
 
 
 </body>
