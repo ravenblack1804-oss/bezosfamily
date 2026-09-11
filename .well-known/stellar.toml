@@ -1,4 +1,5 @@
 VERSION="2.7.0"
+VERSION="2.7.0"
 NETWORK_PASSPHRASE="Public Global Stellar Network ; September 2015"
 
 ACCOUNTS=[
@@ -8,10 +9,10 @@ ACCOUNTS=[
 
 [DOCUMENTATION]
 ORG_NAME="The Vision"
-ORG_DBA="BezosFamily"
+ORG_DBA="Bezos Family"
 ORG_URL="https://bezosfamily.cc"
 ORG_LOGO="https://bezosfamily.cc/images/bzf-logo.png"
-ORG_DESCRIPTION="The Vision is the organization responsible for the BezosFamily (BZF) Stellar asset and its associated digital ecosystem."
+ORG_DESCRIPTION="The Vision is the organization responsible for the Bezos Family (BZF) Stellar asset and its associated digital ecosystem."
 ORG_PHYSICAL_ADDRESS="New York, USA"
 ORG_OFFICIAL_EMAIL="contact@bezosfamily.cc"
 ORG_SUPPORT_EMAIL="support@bezosfamily.cc"
@@ -19,15 +20,16 @@ ORG_SUPPORT_EMAIL="support@bezosfamily.cc"
 [[PRINCIPALS]]
 name="Jeff Bezos"
 email="contact@bezosfamily.cc"
-telegram="Jeff Bezos | The Vision"
+telegram="JeffBezosTheVision"
 
 [[CURRENCIES]]
 code="BZF"
 issuer="GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ"
+status="live"
 display_decimals=7
 name="Bezos Family"
-desc="A digital asset designed around long-term wealth preservation, value transfer and generational financial infrastructure."
-conditions="Fixed supply of 100,000,000 BZF."
+desc="A fixed-supply digital asset designed for long-term financial infrastructure, global value transfer and participation in future ecosystem initiatives."
+conditions="The maximum and final supply is fixed at 100,000,000 BZF. The issuing account has been permanently locked and no additional BZF can be issued."
 image="https://bezosfamily.cc/images/bzf-logo.png"
 fixed_number=100000000
 is_asset_anchored=false
