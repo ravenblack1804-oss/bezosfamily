@@ -1,215 +1,840 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bezos Family | BZF</title>
-
-  <meta name="description"
-        content="Bezos Family (BZF) — a fixed-supply digital asset on the Stellar network.">
+  <meta
+    name="description"
+    content="Bezos Family (BZF) — a fixed-supply digital asset on the Stellar network, built for long-term financial infrastructure, value transfer and future ecosystem participation."
+  />
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      margin: 0;
-      background: #07101f;
-      color: #f5f7fa;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(201, 166, 92, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(201, 166, 92, 0.12), transparent 22%),
+        linear-gradient(180deg, #07101f 0%, #091525 35%, #050b15 100%);
+      color: #f6f7fb;
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .container {
-      width: min(1000px, 90%);
-      margin: auto;
+      width: min(1180px, 92%);
+      margin: 0 auto;
     }
 
-    header {
-      text-align: center;
-      padding: 80px 0 55px;
+    .gold {
+      color: #d4af63;
     }
 
-    .logo {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
+    .muted {
+      color: #b8c0cc;
     }
 
-    h1 {
-      margin: 20px 0 4px;
-      font-size: 46px;
+    .section {
+      padding: 90px 0;
     }
 
-    .code {
-      font-weight: bold;
-      letter-spacing: 5px;
+    .section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      margin-bottom: 18px;
+      line-height: 1.15;
     }
 
-    .intro {
-      max-width: 720px;
-      margin: 25px auto;
+    .section-subtitle {
+      max-width: 820px;
+      color: #b7bfca;
       font-size: 18px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-      margin: 35px 0 65px;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(6, 12, 22, 0.72);
+      border-bottom: 1px solid rgba(212, 175, 99, 0.16);
     }
 
-    .card {
-      border: 1px solid #26364d;
-      border-radius: 12px;
-      padding: 22px;
-      background: #0d1929;
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      gap: 20px;
     }
 
-    .label {
-      font-size: 13px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(212, 175, 99, 0.2);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text span:first-child {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .brand-text span:last-child {
+      font-size: 12px;
+      color: #d4af63;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .value {
-      margin-top: 6px;
-      font-size: 18px;
-      font-weight: bold;
-      word-break: break-word;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
-    section {
-      margin: 60px 0;
+    .nav-links a {
+      font-size: 14px;
+      color: #cfd6df;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #d4af63;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af63 0%, #f1d38a 100%);
+      color: #07101f;
+      box-shadow: 0 14px 34px rgba(212, 175, 99, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 42px rgba(212, 175, 99, 0.24);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(212, 175, 99, 0.35);
+      color: #f7f7f7;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(212, 175, 99, 0.7);
+      background: rgba(212, 175, 99, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 110px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 99, 0.25);
+      color: #d4af63;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      background: rgba(212, 175, 99, 0.06);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #c6ced8;
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+
+    .hero-mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-stat {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 99, 0.14);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .mini-stat .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8f99a8;
+      margin-bottom: 8px;
+    }
+
+    .mini-stat .value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(212, 175, 99, 0.16);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+    }
+
+    .hero-logo img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 30px rgba(212, 175, 99, 0.18));
+    }
+
+    .panel-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #d4af63;
+      margin-bottom: 12px;
+    }
+
+    .panel-title {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .panel-text {
+      color: #c1c8d2;
+      margin-bottom: 24px;
+    }
+
+    .panel-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .panel-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,99,0.12);
+    }
+
+    .panel-item span:first-child {
+      color: #99a4b4;
+      font-size: 14px;
+    }
+
+    .panel-item span:last-child {
+      font-weight: 700;
+      color: #ffffff;
+      text-align: right;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,99,0.12);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.14);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #bcc5d0;
+      font-size: 16px;
+    }
+
+    .objective-box {
+      margin-top: 36px;
+      padding: 36px;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(212,175,99,0.11), rgba(255,255,255,0.03));
+      border: 1px solid rgba(212,175,99,0.2);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.18);
+    }
+
+    .objective-label {
+      color: #d4af63;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 12px;
+    }
+
+    .objective-big {
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .objective-box p {
+      max-width: 900px;
+      color: #d0d6de;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .stat-card {
+      border-radius: 22px;
+      padding: 26px 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,175,99,0.12);
+    }
+
+    .stat-card .small {
+      color: #919cad;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .stat-card .big {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .verification-box {
+      margin-top: 38px;
+      padding: 30px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(212,175,99,0.12);
+      border-radius: 24px;
+    }
+
+    .verification-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .verification-row:last-child {
+      border-bottom: none;
+    }
+
+    .verification-key {
+      color: #8f99a8;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 12px;
+    }
+
+    .verification-value {
+      color: #ffffff;
+      word-break: break-word;
+      font-weight: 600;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 46px 28px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(212,175,99,0.1), rgba(255,255,255,0.03));
+      border: 1px solid rgba(212,175,99,0.18);
+      box-shadow: 0 24px 58px rgba(0,0,0,0.18);
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      margin: 14px auto 28px;
+      color: #c8d0da;
+      font-size: 18px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
     footer {
-      border-top: 1px solid #26364d;
-      padding: 30px 0 50px;
-      margin-top: 70px;
+      padding: 32px 0 50px;
+      border-top: 1px solid rgba(212,175,99,0.12);
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #96a0ad;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .grid-3,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-mini-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 72px 0 60px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .verification-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="/images/bzf-logo.png" alt="BZF Logo">
+        <div class="brand-text">
+          <span>Bezos Family</span>
+          <span>BZF</span>
+        </div>
+      </a>
 
-  <header>
-    <img src="/images/bzf-logo.png"
-         class="logo"
-         alt="Bezos Family BZF logo">
-
-    <h1>Bezos Family</h1>
-
-    <div class="code">BZF</div>
-
-    <p class="intro">
-      A digital asset designed around long-term financial infrastructure,
-      global value transfer and participation in future ecosystem initiatives.
-    </p>
-  </header>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="label">Network</div>
-      <div class="value">Stellar Mainnet</div>
+      <div class="nav-links">
+        <a href="#vision">Vision</a>
+        <a href="#objective">Objective</a>
+        <a href="#asset">Asset</a>
+        <a href="#verify">Verify</a>
+        <a href="#community">Community</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="card">
-      <div class="label">Asset Code</div>
-      <div class="value">BZF</div>
-    </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">The Vision • Stellar Mainnet • Fixed Supply</div>
 
-    <div class="card">
-      <div class="label">Fixed Supply</div>
-      <div class="value">100,000,000 BZF</div>
-    </div>
+          <h1>
+            Building the next era of
+            <span class="gold">digital participation</span>.
+          </h1>
 
-    <div class="card">
-      <div class="label">Display Decimals</div>
-      <div class="value">7</div>
-    </div>
+          <p>
+            Bezos Family is being developed as a long-term digital infrastructure
+            project focused on value transfer, strategic participation and the
+            creation of new pathways between digital assets, large-scale vision
+            and future market access.
+          </p>
 
-  </div>
+          <div class="hero-actions">
+            <a href="#asset" class="btn btn-primary">Explore BZF</a>
+            <a href="https://t.me/JeffBezosTheVision" target="_blank" class="btn btn-secondary">Join Telegram</a>
+          </div>
 
-  <section>
-    <h2>About BZF</h2>
-<section>
-  <h2>Connecting Digital Assets With Public Markets</h2>
+          <div class="hero-mini-stats">
+            <div class="mini-stat">
+              <div class="label">Asset Code</div>
+              <div class="value">BZF</div>
+            </div>
+            <div class="mini-stat">
+              <div class="label">Supply</div>
+              <div class="value">100,000,000</div>
+            </div>
+            <div class="mini-stat">
+              <div class="label">Status</div>
+              <div class="value">Issuer Locked</div>
+            </div>
+          </div>
+        </div>
 
-  <p>
-    Bezos Family is being built with a long-term vision:
-    creating new infrastructure that connects digital participation
-    with some of the world's most established public markets.
-  </p>
+        <div class="hero-panel">
+          <div class="hero-logo">
+            <img src="/images/bzf-logo.png" alt="Bezos Family Logo">
+          </div>
 
-  <div class="card" style="margin-top: 25px;">
-    <div class="label">BZF Strategic Objective</div>
+          <div class="panel-kicker">Asset Overview</div>
+          <div class="panel-title">Bezos Family</div>
+          <p class="panel-text">
+            A fixed-supply Stellar asset designed for long-term financial
+            infrastructure, ecosystem participation and future strategic utility.
+          </p>
 
-    <div class="value" style="font-size: 28px; margin-top: 10px;">
-      1 BZF → 10 Amazon Shares
-    </div>
+          <div class="panel-list">
+            <div class="panel-item">
+              <span>Network</span>
+              <span>Stellar Mainnet</span>
+            </div>
+            <div class="panel-item">
+              <span>Asset Code</span>
+              <span>BZF</span>
+            </div>
+            <div class="panel-item">
+              <span>Maximum Supply</span>
+              <span>100,000,000 BZF</span>
+            </div>
+            <div class="panel-item">
+              <span>Issuer Status</span>
+              <span>Locked</span>
+            </div>
+            <div class="panel-item">
+              <span>Official Domain</span>
+              <span>bezosfamily.cc</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p style="margin-top: 20px;">
-      The BZF ecosystem is working toward a framework designed around
-      a target relationship of <strong>1 BZF to 10 Amazon shares</strong>.
-    </p>
+    <section class="section" id="vision">
+      <div class="container">
+        <h2 class="section-title">A long-term vision built for what comes next.</h2>
+        <p class="section-subtitle">
+          The future will not be shaped by one isolated technology. It will be defined
+          by the convergence of digital systems, strategic infrastructure, global
+          networks and new models of participation. Bezos Family is being positioned
+          inside that larger vision.
+        </p>
 
-    <p>
-      The vision is to create a structured bridge between Stellar-based
-      digital assets and traditional market ownership, supported by the
-      brokerage, custody and compliance infrastructure required for
-      large-scale participation.
-    </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Long-Term Infrastructure</h3>
+            <p>
+              BZF is structured around the idea of long-range development —
+              building systems meant to grow over years, not moments.
+            </p>
+          </div>
 
-    <p>
-      This initiative represents one of the major long-term milestones
-      in the Bezos Family roadmap.
-    </p>
+          <div class="card">
+            <h3>Strategic Participation</h3>
+            <p>
+              The ecosystem is designed to create meaningful access to future
+              initiatives, projects and opportunities developed under The Vision.
+            </p>
+          </div>
 
-    <p style="font-weight: bold; margin-top: 22px;">
-      DIGITAL INFRASTRUCTURE. PUBLIC MARKETS. ONE CONNECTED ECOSYSTEM.
-    </p>
-  </div>
-</section>
-    <p>
-      BZF is designed as the native asset of the Bezos Family digital
-      ecosystem, focused on long-term financial infrastructure,
-      global value transfer and participation in future ecosystem initiatives.
-    </p>
-  </section>
+          <div class="card">
+            <h3>Digital + Real-World Alignment</h3>
+            <p>
+              The objective is to connect blockchain-based participation with
+              broader financial, commercial and market-facing infrastructure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Asset Information</h2>
+    <section class="section" id="objective">
+      <div class="container">
+        <h2 class="section-title">Strategic Objective</h2>
+        <p class="section-subtitle">
+          One of the major long-term milestones for the Bezos Family ecosystem
+          is the creation of a powerful bridge between digital assets and
+          participation in globally recognized market value.
+        </p>
 
-    <p>
-      <strong>Issuer</strong><br>
-      GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ
-    </p>
+        <div class="objective-box">
+          <div class="objective-label">BZF Strategic Objective</div>
+          <div class="objective-big">
+            1 BZF <span class="gold">→</span> 10 Amazon Shares
+          </div>
 
-    <p>
-      <strong>Distribution</strong><br>
-      GD7VLJNN43W5IIWZZ2JRX7PUVEVBNQCVFN7JFDDB2QAVEXFC5G63TFIU
-    </p>
+          <p>
+            The Bezos Family roadmap is being shaped around a bold and ambitious
+            framework: a target relationship designed around
+            <strong>1 BZF to 10 Amazon shares</strong>.
+          </p>
 
-    <p><strong>AUTH_REQUIRED:</strong> No</p>
-    <p><strong>AUTH_REVOCABLE:</strong> No</p>
-    <p><strong>Clawback:</strong> No</p>
-  </section>
+          <p>
+            This objective reflects a broader mission — creating a premium digital
+            asset ecosystem capable of connecting long-term blockchain participation
+            with some of the most valuable and influential assets in the world.
+          </p>
 
-  <section>
-    <h2>Contact</h2>
+          <p>
+            The larger vision is clear: digital infrastructure, public markets and
+            strategic ownership brought together through one connected ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <p>contact@bezosfamily.cc</p>
-    <p>support@bezosfamily.cc</p>
-  </section>
+    <section class="section" id="asset">
+      <div class="container">
+        <h2 class="section-title">Official BZF Asset Information</h2>
+        <p class="section-subtitle">
+          BZF is live on the Stellar network as a fixed-supply asset with a permanently
+          locked issuer account, giving the ecosystem a defined and transparent supply structure.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="small">Asset Code</div>
+            <div class="big">BZF</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Fixed Supply</div>
+            <div class="big">100,000,000</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Display Decimals</div>
+            <div class="big">7</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Network</div>
+            <div class="big">Stellar Mainnet</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Issuer Status</div>
+            <div class="big">Locked</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Auth Required</div>
+            <div class="big">No</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Auth Revocable</div>
+            <div class="big">No</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="small">Clawback</div>
+            <div class="big">No</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="verify">
+      <div class="container">
+        <h2 class="section-title">Official Identification & Verification</h2>
+        <p class="section-subtitle">
+          Always verify the complete asset identity using the official code, issuer and domain.
+        </p>
+
+        <div class="verification-box">
+          <div class="verification-row">
+            <div class="verification-key">Asset Name</div>
+            <div class="verification-value">Bezos Family</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Asset Code</div>
+            <div class="verification-value">BZF</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Issuer</div>
+            <div class="verification-value">GBCP544FWQ6W2STD3NQZTVMBN7MQ7VMLEBBT7UQQ5L2DPCPLXNDA4PKJ</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Distribution</div>
+            <div class="verification-value">GD7VLJNN43W5IIWZZ2JRX7PUVEVBNQCVFN7JFDDB2QAVEXFC5G63TFIU</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Official Domain</div>
+            <div class="verification-value">bezosfamily.cc</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Supply Structure</div>
+            <div class="verification-value">Fixed — 100,000,000 BZF</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Blockchain Profile</div>
+            <div class="verification-value">
+              Metadata published through Stellar TOML and linked to the official home domain.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="section-title">Follow the vision as the next chapter unfolds.</h2>
+          <p>
+            The Bezos Family ecosystem is being introduced step by step. Join the official
+            Telegram channel to follow announcements, strategic updates and the evolution
+            of the BZF roadmap.
+          </p>
+
+          <div class="cta-actions">
+            <a href="https://t.me/JeffBezosTheVision" target="_blank" class="btn btn-primary">Join Official Telegram</a>
+            <a href="#verify" class="btn btn-secondary">Verify Asset Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="padding-top: 0;">
+      <div class="container">
+        <h2 class="section-title">Official Contact</h2>
+        <div class="verification-box">
+          <div class="verification-row">
+            <div class="verification-key">Organization</div>
+            <div class="verification-value">The Vision</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">DBA</div>
+            <div class="verification-value">BezosFamily</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Principal</div>
+            <div class="verification-value">Jeff Bezos</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Official Email</div>
+            <div class="verification-value">contact@bezosfamily.cc</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Support Email</div>
+            <div class="verification-value">support@bezosfamily.cc</div>
+          </div>
+
+          <div class="verification-row">
+            <div class="verification-key">Location</div>
+            <div class="verification-value">New York, USA</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    Bezos Family • BZF • Stellar Network
+    <div class="container footer-inner">
+      <div>Bezos Family • BZF • Stellar Mainnet</div>
+      <div>Official Domain: bezosfamily.cc</div>
+    </div>
   </footer>
-
-</div>
 
 </body>
 </html>
